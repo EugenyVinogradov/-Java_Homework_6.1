@@ -13,7 +13,7 @@ public class StatsService {
     public double avgSales (double[] sales) {
         double sum = 0;
         int month = 0;
-        double avgSum = 0;
+        double avgSum;
         for (int i = month; sales.length > month; i++) {
             sum = sum + sales[month];
             month++;
@@ -46,8 +46,9 @@ public class StatsService {
     public int countMonthMinSales(double[] sales) {
         int month = 0;
         int countMonthMinSales = 0;
+        double avgSum = avgSales(sales);
         for (double sale : sales) {
-            if (sale < avgSales(sales)) {
+            if (sale < avgSum) {
                 countMonthMinSales++;
             }
             month = month + 1;
@@ -57,8 +58,9 @@ public class StatsService {
     public int countMonthMaxSales(double[] sales) {
         int month = 0;
         int countMonthMaxSales = 0;
+        double avgSum = avgSales(sales);
         for (double sale : sales) {
-            if (sale > avgSales(sales)) {
+            if (sale > avgSum) {
                 countMonthMaxSales++;
             }
             month = month + 1;
